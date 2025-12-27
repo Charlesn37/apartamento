@@ -13,11 +13,10 @@ body {
 
 /* HEADER */
 .app-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: 16px;
-  font-size: 18px;
 }
 
 .app-header h1 {
