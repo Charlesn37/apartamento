@@ -7,9 +7,15 @@
 
 /* BODY */
 body {
-  background: linear-gradient(180deg, #5a3e2b, #3b2a1d);
-  color: white;
+  background: linear-gradient(
+    180deg,
+    #5f8f7b 0%,
+    #9fc3b2 50%,
+    #f6f1ea 100%
+  );
+  color: #2a3b36;
   min-height: 100vh;
+  margin: 0;
 }
 
 /* HEADER */
