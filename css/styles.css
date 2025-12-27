@@ -37,9 +37,18 @@ body {
 
 .back {
   grid-column: 1;
-  font-size: 22px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  color: white;
+}
+
+.back .svg-icon {
+  width: 24px;
+  height: 24px;
+  stroke: white;
 }
 
 /* GRID HOME */
