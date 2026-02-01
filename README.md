@@ -27,10 +27,8 @@ Diseñado con **HTML + CSS + JavaScript puro**, sin frameworks, para máxima com
 👉 **Sitio web:**
 
 ```
-https://TU-USUARIO.github.io/TU-REPOSITORIO/
+https://charlesn37.github.io/apartamento
 ```
-
-> Reemplaza `TU-USUARIO` y `TU-REPOSITORIO` por los tuyos.
 
 ---
 
