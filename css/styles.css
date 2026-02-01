@@ -105,16 +105,14 @@ body {
 }
 
 /* =========================================
-   4. PÁGINAS DE CONTENIDO (Subpáginas)
+   4. PÁGINAS DE CONTENIDO (Versión Híbrida/Subpáginas)
    ========================================= */
 .content {
+  margin: 16px;            /* Espacio para que se vea el fondo verde atrás */
   padding: 24px;
-}
-
-.content h2 { 
-  margin-bottom: 8px; 
-  font-size: 1.4rem; 
-  color: #1a2622;
+  background: #ffffff;     /* El fondo blanco que te gusta */
+  border-radius: 24px;     /* Bordes redondeados modernos */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
 }
 
 .intro-text {
@@ -122,20 +120,27 @@ body {
   text-align: center;
 }
 
+.intro-text h2 {
+  color: #2a3b36;          /* Verde oscuro para el título */
+  font-size: 1.5rem;
+}
+
 .subtitle {
   font-size: 0.9rem;
-  color: #3e5a4f;
+  color: #5f8f7b;          /* Verde medio para el subtítulo */
   margin-bottom: 12px;
   font-weight: 600;
 }
 
-/* Listados Generales */
-.content ul { list-style: none; }
-
-/* REGLAS DEL REGLAMENTO */
-.rules-list li {
+/* LISTADOS (Sin bullets, con líneas divisorias) */
+.rules-list li, .emergency-list li, .content ul li {
+  list-style: none;        /* Quitamos los puntos (bullets) */
   padding: 16px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid #f0f0f0; /* Línea divisoria muy sutil */
+}
+
+.rules-list li:last-child {
+  border-bottom: none;     /* La última regla no lleva línea */
 }
 
 .rules-list li strong {
@@ -147,43 +152,8 @@ body {
 
 .rules-list li p {
   font-size: 0.95rem;
-  color: #4b5563;
-  line-height: 1.4;
-}
-
-/* CONTACTOS Y EMERGENCIAS */
-.phone-link {
-  display: inline-block;
-  margin-top: 8px;
-  color: #1a2622;
-  font-weight: 700;
-  background: #fff;
-  padding: 12px 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.emergency-list li {
-  border-left: 4px solid #ff4d4d;
-  padding-left: 16px;
-  margin-bottom: 24px;
-}
-
-/* WIFI PAGE */
-.wifi-page { text-align: center; }
-.code-box { 
-  background: #fff; 
-  padding: 6px 12px; 
-  border-radius: 6px; 
-  font-family: monospace; 
-  font-size: 1.1rem;
-}
-.wifi-qr { 
-  margin: 24px auto; 
-  border: 10px solid #fff; 
-  border-radius: 16px; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: #4b5563;          /* Gris oscuro para lectura cómoda */
+  line-height: 1.5;
 }
 
 /* =========================================
