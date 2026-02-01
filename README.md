@@ -1,8 +1,3 @@
-Perfecto. Aquí tienes **EL README.md COMPLETO**, **bilingüe (ES / EN)**, **listo para copiar y pegar directamente en GitHub Web**.
-No necesitas modificar nada.
-
----
-
 # 🏡 CarAle – Apartment Guest Guide
 
 Guía digital para huéspedes del apartamento **CarAle**, diseñada como una web móvil tipo app.
