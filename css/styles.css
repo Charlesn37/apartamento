@@ -1,84 +1,86 @@
-/* RESET */
+/* =========================================
+   1. RESET & BASE (Mobile First)
+   ========================================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* BODY */
 body {
-  background: linear-gradient(
-    180deg,
-    #5f8f7b 0%,
-    #9fc3b2 50%,
-    #f6f1ea 100%
-  );
+  background: linear-gradient(180deg, #5f8f7b 0%, #9fc3b2 50%, #f6f1ea 100%);
+  background-attachment: fixed; /* Optimiza el scroll en móviles */
   color: #2a3b36;
   min-height: 100vh;
+  line-height: 1.5;
 }
 
-/* HEADER */
+/* =========================================
+   2. HEADER (Común a todas las páginas)
+   ========================================= */
 .app-header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  padding: 16px;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.app-header h1 {
-  grid-column: 2;
-  justify-self: center;
-  font-size: 18px;
-  font-weight: 600;
-  color: white;
-}
-
-.back {
-  grid-column: 1;
-  width: 32px;
-  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.45); /* Mayor contraste para el sol */
+  position: relative;
+  min-height: 64px;
+}
+
+.app-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+}
+
+.back {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; /* Tamaño ideal para el dedo */
+  height: 48px;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.back .svg-icon {
-  width: 24px;
-  height: 24px;
-  stroke: white;
-}
-
-/* GRID HOME */
+/* =========================================
+   3. GRID PRINCIPAL (index.html)
+   ========================================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
   padding: 20px;
 }
 
-/* CARD */
 .card {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
   border-radius: 16px;
   padding: 20px;
   text-align: center;
-  text-decoration: none;
-  color: white;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  transition: transform 0.15s ease;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s ease;
+  cursor: pointer;
 }
 
 .card:active {
-  transform: scale(0.97);
+  transform: scale(0.95);
+  background: rgba(0, 0, 0, 0.5);
 }
 
-/* ICON CIRCLE */
 .icon-circle {
   width: 56px;
   height: 56px;
@@ -89,47 +91,151 @@ body {
   justify-content: center;
 }
 
-/* SVG ICONS */
 .svg-icon {
   width: 28px;
   height: 28px;
   stroke: white;
   stroke-width: 2;
   fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
-/* CONTENT PAGES */
-.content {
-  margin: 20px;
-  background: rgba(255, 255, 255, 0.88);
-  border-radius: 16px;
-  padding: 20px;
-  line-height: 1.6;
-  font-size: 15px;
-  color: #2a3b36;
-}
-
-.content h2 {
-  margin-bottom: 12px;
-  font-size: 17px;
-}
-
-.content ul {
-  padding-left: 18px;
-}
-
-.content li {
-  margin-bottom: 10px;
-}
-
-/* EMERGENCY */
-.emergency .svg-icon {
+/* Icono rojo especial para emergencias */
+.card.emergency .svg-icon {
   stroke: #ff4d4d;
 }
 
-/* LINKS */
-a {
-  color: inherit;
+/* =========================================
+   4. PÁGINAS DE CONTENIDO (Subpáginas)
+   ========================================= */
+.content {
+  padding: 24px;
+}
+
+.content h2 { 
+  margin-bottom: 8px; 
+  font-size: 1.4rem; 
+  color: #1a2622;
+}
+
+.intro-text {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #3e5a4f;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Listados Generales */
+.content ul { list-style: none; }
+
+/* REGLAS DEL REGLAMENTO */
+.rules-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.rules-list li strong {
+  display: block;
+  font-size: 1rem;
+  color: #2a3b36;
+  margin-bottom: 4px;
+}
+
+.rules-list li p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+/* CONTACTOS Y EMERGENCIAS */
+.phone-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #1a2622;
+  font-weight: 700;
+  background: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.emergency-list li {
+  border-left: 4px solid #ff4d4d;
+  padding-left: 16px;
+  margin-bottom: 24px;
+}
+
+/* WIFI PAGE */
+.wifi-page { text-align: center; }
+.code-box { 
+  background: #fff; 
+  padding: 6px 12px; 
+  border-radius: 6px; 
+  font-family: monospace; 
+  font-size: 1.1rem;
+}
+.wifi-qr { 
+  margin: 24px auto; 
+  border: 10px solid #fff; 
+  border-radius: 16px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   5. MODAL (Action Sheet)
+   ========================================= */
+.map-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Efecto desde abajo */
+  z-index: 9999;
+}
+
+.map-modal.hidden { display: none; }
+
+.map-sheet {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 24px;
+  text-align: center;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.map-sheet a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  margin-bottom: 12px;
+  background: #f2f5f4;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #2a3b36;
+  font-weight: 600;
+}
+
+#btnCancelar {
+  width: 100%;
+  padding: 16px;
+  background: none;
+  border: none;
+  color: #ef4444; /* Rojo para cancelar */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 }
