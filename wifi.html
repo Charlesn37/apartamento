@@ -3,35 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WiFi</title>
+  <title>WiFi - CarAle</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
 <header class="app-header">
-  <a href="index.html" class="back">
-  <svg viewBox="0 0 24 24" class="svg-icon"
-  xmlns="http://www.w3.org/2000/svg">
-    <path d="M15 18l-6-6 6-6"/>
-  </svg>
-</a>
+  <a href="index.html" class="back" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" class="svg-icon" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+  </a>
   <h1>WiFi</h1>
-  <span></span>
 </header>
-
-<main class="content">
+<main class="content wifi-page">
   <p><strong>Red:</strong> Infinitum 152D</p>
-  <p><strong>Contraseña:</strong> qnaPW5gfYF</p>
+  <p><strong>Contraseña:</strong> <code class="code-box">qnaPW5gfYF</code></p>
   <h2>Escanea el código QR</h2>
-
-<img 
-  src="images/wifi-qr.png" 
-  alt="Código QR de la red WiFi"
-  class="wifi-qr"
-/>
-
-<p>Al escanear el código te conectarás automáticamente a la red.</p>
+  <img src="images/wifi-qr.png" alt="Código QR de la red WiFi" width="250" height="250" loading="lazy" class="wifi-qr">
+  <p class="small-text">Al escanear el código te conectarás automáticamente.</p>
 </main>
-
 </body>
 </html>
