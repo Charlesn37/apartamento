@@ -220,7 +220,7 @@ body {
 /* Reset específico para <button.card> */
 button.card {
   border: none;
-  background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.4);
   color: #fff;
   font-family: inherit;
   padding: 20px;
