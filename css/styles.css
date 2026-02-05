@@ -209,3 +209,19 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+/* Texto de los botones (todos iguales, todos los navegadores) */
+.card span {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+/* Reset específico para <button.card> */
+button.card {
+  border: none;
+  background: rgba(0,0,0,0.25);
+  color: #fff;
+  font-family: inherit;
+  padding: 20px;
+}
