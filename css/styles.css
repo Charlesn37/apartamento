@@ -86,12 +86,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
 .card .icon {
-  font-size: 1.4rem;
-  opacity: 0.6;
+  width: 28px;
+  height: 28px;
+  opacity: 0.75;
+  transition: all 0.3s ease;
+}
+
+.card:hover .icon {
+  opacity: 1;
+  transform: translateY(-3px);
 }
 
 /* ================= SECTIONS ================= */
