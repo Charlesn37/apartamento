@@ -140,3 +140,32 @@ html {
   font-weight: 700;
   letter-spacing: -0.5px;
 }
+/* ===== ACORDEÓN ===== */
+
+details {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+details[open] {
+  background: #eef2ff;
+}
+
+summary {
+  font-weight: 600;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details p {
+  margin-top: 0.8rem;
+  font-weight: 400;
+  color: var(--gris-oscuro);
+}
