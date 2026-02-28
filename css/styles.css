@@ -54,6 +54,18 @@ body {
   flex-direction: column;
   gap: 0.6rem;
 }
+.check-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+}
 
 /* ================= GRID ================= */
 
