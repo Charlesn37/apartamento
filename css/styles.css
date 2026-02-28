@@ -140,31 +140,39 @@ html {
   font-weight: 700;
   letter-spacing: -0.5px;
 }
-/* ===== ACORDEÓN MEJORADO ===== */
+/* ===== ACORDEÓN PREMIUM ===== */
 
 details {
-  background: #f9fafb;
-  border-radius: 14px;
-  padding: 1.2rem 1.3rem;
-  margin-bottom: 1.2rem;
+  background: white;
+  border-radius: 18px;
+  padding: 1.6rem 1.6rem;
+  margin-bottom: 1.6rem;
   cursor: pointer;
-  transition: all 0.25s ease;
-  border: 1px solid #eef2f7;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
 }
 
 details:hover {
-  background: #f3f4f6;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
 }
 
 details[open] {
-  background: #eef2ff;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f9fafb
+  );
+  box-shadow: 0 14px 32px rgba(0,0,0,0.08);
 }
 
 summary {
   font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.8;
   list-style: none;
+  letter-spacing: -0.2px;
 }
 
 summary::-webkit-details-marker {
@@ -172,8 +180,9 @@ summary::-webkit-details-marker {
 }
 
 details p {
-  margin-top: 1rem;
-  line-height: 1.7;
-  font-size: 0.95rem;
+  margin-top: 1.2rem;
+  line-height: 1.9;
+  font-size: 1rem;
   color: var(--gris-oscuro);
+  opacity: 0.85;
 }
