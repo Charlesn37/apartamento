@@ -1,154 +1,120 @@
-/* ===== RESET SIMPLE ===== */
+/* ================= RESET ================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== VARIABLES ===== */
-:root {
-  --arena: #f5f5dc;
-  --turquesa: #40e0d0;
-  --gris-oscuro: #1f2937;
-  --gris-claro: #f9fafb;
-  --rojo-suave: #fee2e2;
-  --rojo-texto: #b91c1c;
-}
-
-/* ===== BODY ===== */
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(
-  180deg,
-  #ffffff 0%,
-  #f8fafc 100%);
-  color: var(--gris-oscuro);
-  line-height: 1.6;
-  padding-bottom: 80px;
-}
-
-/* ===== HEADER ===== */
-.app-header {
-  position: sticky;
-  top: 0;
-  background: white;
-  padding: 1rem;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.4rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  z-index: 100;
-}
-
-/* ===== CHECK BANNER ===== */
-.check-banner {
-  background: var(--arena);
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.95rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-/* ===== GRID ===== */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 1.5rem;
-}
-
-/* ===== CARDS ===== */
-.card {
-  background: white;
-  padding: 1.2rem;
-  text-align: center;
-  border-radius: 14px;
-  text-decoration: none;
-  color: var(--gris-oscuro);
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
-}
-
-.card:active {
-  transform: scale(0.97);
-}
-
-.card:hover {
-  background: var(--turquesa);
-  color: white;
-}
-
-/* Emergencias destacada */
-.card.emergency {
-  background: var(--rojo-suave);
-  color: var(--rojo-texto);
-}
-
-/* ===== SECCIONES ===== */
-.content-section {
-  padding: 2rem 1.5rem;
-  background: white;
-  margin: 1rem;
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.content-section h2 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-/* ===== DESKTOP ===== */
-@media (min-width: 768px) {
-
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 900px;
-    margin: auto;
-  }
-
-  .content-section {
-    max-width: 900px;
-    margin: 1rem auto;
-  }
-
-  .check-banner {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-}
-
-/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
 
-/* Separación visual entre grid y contenido */
+/* ================= BASE ================= */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fdfcf9 60%,
+    #f8f5ef 100%
+  );
+  color: #1f2937;
+  line-height: 1.7;
+  padding-bottom: 100px;
+}
+
+/* ================= HEADER ================= */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  padding: 1.4rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+/* ================= CHECK BANNER ================= */
+
+.check-banner {
+  background: #f5f1e8;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ================= GRID ================= */
+
 .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  padding: 2rem 1.5rem;
   margin-bottom: 2rem;
 }
 
-/* Mejor espaciado entre secciones */
-.content-section {
-  scroll-margin-top: 80px; /* evita que el header tape el título */
+/* ================= CARDS ================= */
+
+.card {
+  background: white;
+  padding: 1.6rem 1rem;
+  text-align: center;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
 }
 
-/* Títulos más elegantes */
+.card:active {
+  transform: scale(0.96);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card.emergency {
+  background: #fff1f2;
+  color: #b91c1c;
+}
+
+/* ================= SECTIONS ================= */
+
+.content-section {
+  padding: 3rem 1.8rem;
+  background: white;
+  margin: 2rem 1rem;
+  border-radius: 22px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+  scroll-margin-top: 100px;
+}
+
 .content-section h2 {
-  font-weight: 700;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
   letter-spacing: -0.5px;
 }
-/* ===== ACORDEÓN PREMIUM ===== */
+
+/* ================= ACCORDION ================= */
 
 details {
   background: white;
   border-radius: 18px;
-  padding: 1.6rem 1.6rem;
+  padding: 1.6rem;
   margin-bottom: 1.6rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -186,6 +152,28 @@ details p {
   margin-top: 1.2rem;
   line-height: 1.9;
   font-size: 1rem;
-  color: var(--gris-oscuro);
   opacity: 0.85;
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width: 768px) {
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .content-section {
+    max-width: 1000px;
+    margin: 2rem auto;
+  }
+
+  .check-banner {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+
 }
