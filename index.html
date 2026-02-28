@@ -3,67 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenido</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>CarAle | Bienvenido</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="Departamento CarAle en San Vicente Nayarit. Información útil para huéspedes.">
+
+  <!-- Fuente Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<header class="app-header">
-  <h1>CarAle - APARTMENT</h1>
-  <span></span>
-</header>
+  <!-- HEADER FIJO -->
+  <header class="app-header">
+    <h1>CarAle</h1>
+  </header>
 
-<div class="grid">
-
-  <a class="card" href="reglamento.html">
-    <div class="icon-circle">
-      <svg viewBox="0 0 24 24" class="svg-icon"
-	  xmlns="http://www.w3.org/2000/svg">
-        <rect x="4" y="2" width="14" height="20" rx="2"/>
-        <path d="M8 6h6"/>
-        <path d="M8 10h6"/>
-        <path d="M8 14h6"/>
-      </svg>
+  <!-- CHECK IN / OUT -->
+  <section class="check-banner">
+    <div>
+      🕒 <strong>Check-in:</strong> 3:00 PM
     </div>
-    <span>Reglamento</span>
-  </a>
-
-  <a class="card" href="wifi.html">
-    <div class="icon-circle">
-      <svg viewBox="0 0 24 24" class="svg-icon"
-	  xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 8.82C6.97 4.56 17.03 4.56 22 8.82"/>
-        <path d="M5 12.36C8.76 9.2 15.24 9.2 19 12.36"/>
-        <path d="M8.5 15.9C10.91 14.1 13.09 14.1 15.5 15.9"/>
-        <circle cx="12" cy="19" r="1"/>
-      </svg>
+    <div>
+      🕒 <strong>Check-out:</strong> 11:00 AM
     </div>
-    <span>WiFi</span>
-  </a>
+  </section>
 
-  <a class="card" href="contactos.html">
-    <div class="icon-circle">
-      <svg viewBox="0 0 24 24" class="svg-icon"
-	  xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 2h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 4a2 2 0 0 1 2-2z"/>
-      </svg>
-    </div>
-    <span>Contactos</span>
-  </a>
+  <!-- GRID PRINCIPAL -->
+  <main class="grid">
 
-  <a class="card" href="emergencias.html">
-    <div class="icon-circle">
-      <svg viewBox="0 0 24 24" class="svg-icon"
-	  xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 3l9 16H3L12 3z"/>
-        <path d="M12 9v4"/>
-        <circle cx="12" cy="16" r="1"/>
-      </svg>
-    </div>
-    <span>Emergencias</span>
-  </a>
+    <a href="#llegada" class="card">🏠 Llegada</a>
+    <a href="#wifi" class="card">📶 WiFi</a>
+    <a href="#reglamento" class="card">📋 Reglamento</a>
+    <a href="#contacto" class="card">📞 Contacto</a>
+    <a href="#emergencias" class="card emergency">🚨 Emergencias</a>
+    <a href="#faq" class="card">❓ FAQ</a>
 
-</div>
+  </main>
+
+  <!-- SECCIONES -->
+
+  <section id="llegada" class="content-section">
+    <h2>Llegada</h2>
+    <p>Indicaciones, estacionamiento y acceso al departamento.</p>
+  </section>
+
+  <section id="wifi" class="content-section">
+    <h2>WiFi</h2>
+    <p>Nombre y contraseña de la red.</p>
+  </section>
+
+  <section id="reglamento" class="content-section">
+    <h2>Reglamento</h2>
+    <p>Normas para una mejor estancia.</p>
+  </section>
+
+  <section id="contacto" class="content-section">
+    <h2>Contacto</h2>
+    <p>Teléfono, WhatsApp y correo.</p>
+  </section>
+
+  <section id="emergencias" class="content-section">
+    <h2>Emergencias</h2>
+    <p>Números importantes.</p>
+  </section>
+
+  <section id="faq" class="content-section">
+    <h2>Preguntas Frecuentes</h2>
+    <p>Respuestas rápidas a dudas comunes.</p>
+  </section>
 
 </body>
 </html>
