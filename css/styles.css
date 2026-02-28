@@ -140,15 +140,20 @@ html {
   font-weight: 700;
   letter-spacing: -0.5px;
 }
-/* ===== ACORDEÓN ===== */
+/* ===== ACORDEÓN MEJORADO ===== */
 
 details {
   background: #f9fafb;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  border-radius: 14px;
+  padding: 1.2rem 1.3rem;
+  margin-bottom: 1.2rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.25s ease;
+  border: 1px solid #eef2f7;
+}
+
+details:hover {
+  background: #f3f4f6;
 }
 
 details[open] {
@@ -157,6 +162,8 @@ details[open] {
 
 summary {
   font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.6;
   list-style: none;
 }
 
@@ -165,7 +172,8 @@ summary::-webkit-details-marker {
 }
 
 details p {
-  margin-top: 0.8rem;
-  font-weight: 400;
+  margin-top: 1rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
   color: var(--gris-oscuro);
 }
