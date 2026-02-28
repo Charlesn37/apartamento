@@ -28,14 +28,18 @@ body {
 /* ================= HEADER ================= */
 
 .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   width: 100%;
   text-align: center;
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: 1px;
-  padding: 1.4rem 1.5rem 1rem;
-  background: #ffffffcc;
-  backdrop-filter: blur(6px);
+  letter-spacing: 0.5px;
+  padding: 1.2rem 1.5rem 0.8rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
 }
 
 /* ================= CHECK BANNER ================= */
