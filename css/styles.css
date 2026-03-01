@@ -295,3 +295,23 @@ details p {
 .btn-map {
   background-color: #2563eb; /* Azul mapa */
 }
+/* ================= COLORES DE BOTONES DE MAPAS ================= */
+.btn-google {
+  background-color: #4285F4;
+  color: white;
+}
+
+.btn-waze {
+  background-color: #33ccff; /* Azul característico de Waze */
+  color: #01202e; /* Letra oscura para buen contraste */
+}
+
+.btn-apple {
+  background-color: #000000;
+  color: white;
+}
+
+/* Efecto hover/toque general para los botones */
+.btn-action:hover {
+  opacity: 0.9;
+}
