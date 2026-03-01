@@ -144,14 +144,37 @@
 </div>
 
   <section id="llegada" class="content-section">
-    <h2>Llegada</h2>
-    <p>Indicaciones, estacionamiento y acceso al departamento.</p>
-  </section>
+  <h2>Tu Llegada</h2>
+  <p style="margin-bottom: 15px;">El acceso es autónomo. La llave se encuentra en la caja de seguridad junto a la puerta.</p>
+  
+  <div class="info-card">
+    <p><strong>📍 Código de caja:</strong> 1234</p>
+    <p><strong>🚗 Estacionamiento:</strong> Cajón #12</p>
+  </div>
+
+  <a href="https://maps.google.com/?q=San+Vicente+Nayarit" target="_blank" class="btn-action btn-map">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: text-bottom;"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+    Abrir en Google Maps
+  </a>
+</section>
 
   <section id="wifi" class="content-section">
-    <h2>WiFi</h2>
-    <p>Nombre de red y contraseña disponibles aquí.</p>
-  </section>
+  <h2>WiFi</h2>
+  
+  <div class="info-card">
+    <p class="wifi-label">Red:</p>
+    <p class="wifi-data">CarAle_5G</p>
+    
+    <p class="wifi-label">Contraseña:</p>
+    <p class="wifi-data" id="passWiFi">CarAle2026!</p>
+    
+    <button class="btn-action" onclick="copiarWiFi()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: text-bottom;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copiar Contraseña
+    </button>
+    <p id="msgCopiado" style="display: none; color: #10b981; font-weight: 600; margin-top: 10px; font-size: 0.9rem;">¡Contraseña copiada! ✔️</p>
+  </div>
+</section>
 
   <section id="reglamento" class="content-section">
     <h2>Reglas para disfrutar mejor tu estancia</h2>
@@ -191,6 +214,17 @@
     <h2>Preguntas Frecuentes</h2>
     <p>Respuestas rápidas a dudas comunes.</p>
   </section>
+<!-- Pega este script justo antes de cerrar tu etiqueta </body> -->
+<script>
+  function copiarWiFi() {
+    var pass = document.getElementById("passWiFi").innerText;
+    navigator.clipboard.writeText(pass).then(function() {
+      var msj = document.getElementById("msgCopiado");
+      msj.style.display = "block";
+      setTimeout(function() { msj.style.display = "none"; }, 3000);
+    });
+  }
+</script>
 
 </body>
 </html>
