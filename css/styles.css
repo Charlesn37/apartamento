@@ -245,3 +245,53 @@ details p {
   font-weight: 500;
   letter-spacing: -0.4px;
 }
+/* ================= COMPONENTES EXTRA (WIFI, MAPS, BOTONES) ================= */
+
+.info-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.wifi-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b7280;
+  margin-bottom: 0.2rem;
+}
+
+.wifi-data {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.2rem;
+}
+
+.btn-action {
+  display: block;
+  width: 100%;
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn-action:active {
+  transform: scale(0.98);
+}
+
+.btn-map {
+  background-color: #2563eb; /* Azul mapa */
+}
