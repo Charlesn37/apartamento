@@ -323,3 +323,22 @@ details p {
 .btn-action:hover {
   opacity: 0.9;
 }
+
+/* ================= EXCEPCIÓN: TARJETA DE EMERGENCIAS ================= */
+
+/* Fondo y texto de la tarjeta de emergencia */
+.card.emergency {
+  background-color: #fef2f2; /* Un fondo rojizo muy muy suave */
+  color: #991b1b; /* Texto rojo oscuro elegante */
+  border: 1px solid #fee2e2; /* Borde rojizo sutil */
+}
+
+/* El ícono de emergencia en rojo vibrante */
+.card.emergency .icon {
+  color: #dc2626 !important; /* El !important asegura que no gane el azul */
+}
+
+/* Efecto hover específico para que no pierda el rojo al tocarlo */
+.card.emergency:hover {
+  background-color: #fee2e2;
+}
