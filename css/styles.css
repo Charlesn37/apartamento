@@ -342,3 +342,36 @@ details p {
 .card.emergency:hover {
   background-color: #fee2e2;
 }
+
+/* ================= BOTÓN FLOTANTE WHATSAPP ================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366; /* Verde oficial de WhatsApp */
+  border-radius: 50%; /* Lo hace un círculo perfecto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4); /* Sombra verde brillante */
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Efecto de "latido" ligero al pasar el dedo/mouse */
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Para asegurar que no estorbe en pantallas de celulares muy pequeños */
+@media (max-width: 400px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+  }
+}
