@@ -194,77 +194,104 @@
     <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
   </a>
 
-  <!-- MODAL DE CHECKOUT: La "recompensa" final -->
-  <div id="modalCheckout" class="modal-overlay">
-    <div class="modal-card">
-      <div id="step-check">
-        <h2 style="color: var(--primary);">Cierre de Estancia</h2>
-        <p style="font-size: 0.85rem; color: var(--slate); margin-bottom: 1.2rem;">Ayúdanos a preparar el hogar para el siguiente huésped:</p>
-        <div style="text-align:left; margin-bottom: 1.5rem;">
-          <label><input type="checkbox" class="check-item"> A/C y Luces apagadas</label>
-          <label><input type="checkbox" class="check-item"> Basura en su lugar</label>
-          <label><input type="checkbox" class="check-item"> Ventanas y Balcón cerrados</label>
-          <label><input type="checkbox" class="check-item"> Gas cerrado</label>
-          <label><input type="checkbox" class="check-item"> Llaves en su lugar</label>
-        </div>
-        <button class="btn-modal btn-primary" onclick="verifyChecklist()">Confirmar y seguir</button>
-        <button class="btn-modal btn-ghost" onclick="closeModal()">Seguir aquí</button>
+  <!-- MODAL DE CHECKOUT ACTUALIZADO -->
+<div id="modalCheckout" class="modal-overlay">
+  <div class="modal-card">
+    <!-- PASO 1: CHECKLIST -->
+    <div id="step-check">
+      <h2 style="color: var(--primary);">Cierre de Estancia</h2>
+      <p style="font-size: 0.85rem; color: var(--slate); margin-bottom: 1.2rem;">Ayúdanos a preparar el hogar para el siguiente huésped:</p>
+      <div style="text-align:left; margin-bottom: 1.5rem;">
+        <label><input type="checkbox" class="check-item"> A/C y Luces apagadas</label>
+        <label><input type="checkbox" class="check-item"> Basura en su lugar</label>
+        <label><input type="checkbox" class="check-item"> Ventanas y Balcón cerrados</label>
+        <label><input type="checkbox" class="check-item"> Gas cerrado</label>
+        <label><input type="checkbox" class="check-item"> Llaves en su lugar</label>
       </div>
+      <button class="btn-modal btn-primary" onclick="verifyChecklist()">Confirmar y seguir</button>
+      <button class="btn-modal btn-ghost" onclick="closeModal()">Seguir aquí</button>
+    </div>
 
-      <div id="step-ask" class="hidden">
-        <h2>¿Cómo te sentiste?</h2>
-        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Tu mensaje nos ayuda a mejorar personalmente.</p>
-        <button class="btn-modal btn-primary" onclick="finishToWA('¡Excelente estancia! Todo perfecto. ⭐')">¡Excelente! Todo perfecto</button>
-        <button class="btn-modal btn-ghost" onclick="finishToWA('Estancia buena, tengo algunas sugerencias.')">Hubo detalles / sugerencias</button>
-      </div>
+    <!-- PASO 2: FEEDBACK -->
+    <div id="step-ask" class="hidden">
+      <h2>¿Cómo te sentiste?</h2>
+      <p style="font-size: 0.9rem; margin-bottom: 1rem;">Tu mensaje nos ayuda a mejorar personalmente.</p>
+      <button class="btn-modal btn-primary" onclick="finishToWA('¡Excelente estancia! Todo perfecto. ⭐')">¡Excelente! Todo perfecto</button>
+      <button class="btn-modal btn-ghost" onclick="finishToWA('Estancia buena, tengo algunas sugerencias.')">Hubo detalles / sugerencias</button>
+    </div>
+
+    <!-- PASO 3: ÉXITO (NEURO-CIERRE) -->
+    <div id="step-thanks" class="hidden">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">✨</div>
+      <h2 style="color: var(--whatsapp);">¡Misión cumplida!</h2>
+      <p style="font-size: 0.9rem; color: var(--slate);">Gracias por cuidar nuestro hogar. <br>Te estamos redirigiendo a WhatsApp para avisar al propietario...</p>
     </div>
   </div>
+</div>
 
-  <script>
-    const WA_NUMBER = "523328329427";
-    const DEPT_INFO = "CarAle 302";
+<script>
+  const WA_NUMBER = "523328329427";
+  const DEPT_INFO = "CarAle 302";
 
-    function copyWifi() {
-      const pass = "qnaPW5gfYF";
-      const label = document.getElementById('wifi-label');
-      navigator.clipboard.writeText(pass).then(() => {
-        label.innerText = "¡Conectado! Clave copiada 🎉";
-        label.parentElement.style.background = "#10b981";
-        setTimeout(() => {
-          label.innerText = "Conectar a Wi-Fi (Copiar)";
-          label.parentElement.style.background = "#0284c7";
-        }, 3000);
-      });
-    }
+  function copyWifi() {
+    const pass = "qnaPW5gfYF";
+    const label = document.getElementById('wifi-label');
+    navigator.clipboard.writeText(pass).then(() => {
+      label.innerText = "¡Conectado! Clave copiada 🎉";
+      label.parentElement.style.background = "#10b981";
+      setTimeout(() => {
+        label.innerText = "Conectar a Wi-Fi (Copiar)";
+        label.parentElement.style.background = "#0284c7";
+      }, 3000);
+    });
+  }
 
-    const modal = document.getElementById('modalCheckout');
-    function openCheckout() { modal.style.display = 'flex'; resetModal(); }
-    function closeModal() { modal.style.display = 'none'; }
+  const modal = document.getElementById('modalCheckout');
+  function openCheckout() { modal.style.display = 'flex'; resetModal(); }
+  function closeModal() { modal.style.display = 'none'; }
 
-    function verifyChecklist() {
-      const checks = document.querySelectorAll('.check-item');
-      let ok = true;
-      checks.forEach(c => { if(!c.checked) ok = false; });
-      if(ok) goStep('ask'); else alert("Por favor, confirma los puntos de cuidado antes de salir.");
-    }
+  function verifyChecklist() {
+    const checks = document.querySelectorAll('.check-item');
+    let ok = true;
+    checks.forEach(c => { if(!c.checked) ok = false; });
+    if(ok) goStep('ask'); else alert("Por favor, confirma los puntos de cuidado antes de salir.");
+  }
 
-    function goStep(stepId) {
-      ['step-check', 'step-ask'].forEach(s => document.getElementById(s).classList.add('hidden'));
-      document.getElementById('step-' + stepId).classList.remove('hidden');
-    }
+  function goStep(stepId) {
+    // Ocultamos todos los pasos
+    ['step-check', 'step-ask', 'step-thanks'].forEach(s => {
+      document.getElementById(s).classList.add('hidden');
+    });
+    // Mostramos el paso actual
+    document.getElementById('step-' + stepId).classList.remove('hidden');
+  }
 
-    function finishToWA(feedback) {
-      const text = `Hola! 👋 Confirmo mi salida de ${DEPT_INFO}. %0A%0A✅ Checklist completado. %0A⭐ Feedback: ${feedback}`;
-      window.location.href = `https://wa.me/${WA_NUMBER}?text=${text}`;
-    }
+  function finishToWA(feedback) {
+    // 1. Mostrar pantalla de éxito inmediatamente (Feedback positivo)
+    goStep('thanks');
 
-    function resetModal() {
-      goStep('check');
-      document.querySelectorAll('.check-item').forEach(c => c.checked = false);
-    }
+    // 2. Preparar el mensaje
+    const text = `Hola! 👋 Confirmo mi salida de ${DEPT_INFO}. %0A%0A✅ Checklist completado. %0A⭐ Feedback: ${feedback}`;
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${text}`;
 
-    window.onclick = function(e) { if(e.target == modal) closeModal(); }
-  </script>
+    // 3. Pequeño delay para que el usuario vea el mensaje de agradecimiento
+    // Esto cierra el ciclo cognitivo antes de cambiar de app
+    setTimeout(() => {
+      // 4. Cerrar el modal para que si regresa, la web esté limpia
+      closeModal();
+      // 5. Redirigir
+      window.location.href = waUrl;
+    }, 1800);
+  }
+
+  function resetModal() {
+    goStep('check');
+    document.querySelectorAll('.check-item').forEach(c => c.checked = false);
+  }
+
+  // Cerrar al hacer clic fuera del modal
+  window.onclick = function(e) { if(e.target == modal) closeModal(); }
+</script>
 
 </body>
 </html>
