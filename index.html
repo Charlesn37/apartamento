@@ -338,67 +338,130 @@
     </div>
   </section>
 
-  <!-- MODAL CHECKOUT (PEAK-END RULE) -->
-  <div id="modalCheckout" class="modal-overlay" onclick="closeModal()">
-    <div class="modal-card" onclick="event.stopPropagation()">
-      <div id="m-step1">
-        <h2>¿Cómo estuvo todo?</h2>
-        <p style="color: var(--slate); font-size: 0.9rem; margin-bottom: 1.5rem;">Tu opinión nos ayuda a mejorar.</p>
-        <button class="btn-modal btn-happy" onclick="goStep('happy')">¡Todo perfecto! ⭐⭐⭐⭐⭐</button>
-        <button class="btn-modal btn-sad" onclick="goStep('sad')">Tengo una queja/detalle</button>
+  <!-- MODAL DE SALIDA (FLUJO DE FILTRADO) -->
+<div id="modalCheckout" class="modal-overlay">
+  <div class="modal-card">
+    
+    <!-- PASO 1: EL CHECKLIST (Evita preguntas de salida) -->
+    <div id="m-step-check">
+      <h2 style="color: var(--primary);">👋 Antes de irte...</h2>
+      <p style="font-size: 0.85rem; color: var(--slate); margin-bottom: 1rem;">Por favor, confirma estos 4 puntos:</p>
+      <div style="text-align: left; margin-bottom: 1.5rem; display: grid; gap: 8px;">
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+          <input type="checkbox" class="check-item"> Aire Acondicionado apagado
+        </label>
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+          <input type="checkbox" class="check-item"> Luces interiores apagadas
+        </label>
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+          <input type="checkbox" class="check-item"> Basura en contenedores (portón)
+        </label>
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+          <input type="checkbox" class="check-item"> Llaves en su lugar original
+        </label>
       </div>
-
-      <div id="m-happy" class="hidden">
-        <h2 style="font-size: 2rem;">😍</h2>
-        <h2>¡Genial!</h2>
-        <p style="margin-bottom: 1.5rem;">¿Nos regalas un minuto dejando tu reseña en Airbnb?</p>
-        <a href="https://www.airbnb.com/users/reviews" class="btn-modal btn-happy" style="display:block; text-decoration:none;">Escribir reseña ahora</a>
-        <button class="btn-modal btn-sad" onclick="closeModal()">Después</button>
-      </div>
-
-      <div id="m-sad" class="hidden">
-        <h2>Danos la oportunidad</h2>
-        <p style="margin-bottom: 1.5rem;">Sentimos que algo no fuera perfecto. Cuéntanos por WhatsApp ahora mismo para solucionarlo.</p>
-        <a href="https://wa.me/523328329427?text=Hola, tengo un comentario sobre mi estancia..." class="btn-modal btn-wa">Hablar con soporte ahora</a>
-        <button class="btn-modal btn-sad" style="margin-top:10px;" onclick="closeModal()">Cerrar</button>
-      </div>
+      <button class="btn-modal btn-happy" onclick="verifyChecklist()">Listo, todo en orden</button>
+      <button class="btn-modal btn-sad" onclick="closeModal()">Cancelar</button>
     </div>
+
+    <!-- PASO 2: LA PREGUNTA (Triage de satisfacción) -->
+    <div id="m-step-ask" class="hidden">
+      <h2>¿Cómo estuvo todo?</h2>
+      <p style="color: var(--slate); font-size: 0.9rem; margin-bottom: 1.5rem;">Tu opinión nos ayuda a mejorar.</p>
+      <button class="btn-modal btn-happy" onclick="goStep('happy')">¡Increíble! ⭐⭐⭐⭐⭐</button>
+      <button class="btn-modal btn-sad" style="background:#e2e8f0; color:#475569;" onclick="goStep('neutral')">Bien, pero hay detalles</button>
+      <button class="btn-modal btn-sad" onclick="goStep('sad')">Tuve problemas/quejas</button>
+    </div>
+
+    <!-- PASO 3A: TODO EXCELENTE (Hacia Airbnb) -->
+    <div id="m-happy" class="hidden">
+      <div style="font-size: 2.5rem; margin-bottom: 10px;">😍</div>
+      <h2>¡Nos haces el día!</h2>
+      <p style="margin-bottom: 1.5rem;">Las reseñas de 5 estrellas nos ayudan mucho. ¿Nos regalas 1 minuto?</p>
+      <a href="https://www.airbnb.com/users/reviews" target="_blank" class="btn-modal btn-happy" style="text-decoration: none;">Dejar 5 estrellas ahora</a>
+      <button class="btn-modal btn-sad" onclick="closeModal()">Cerrar</button>
+    </div>
+
+    <!-- PASO 3B: DETALLES O QUEJAS (Hacia WhatsApp) -->
+    <div id="m-sad" class="hidden">
+      <div style="font-size: 2.5rem; margin-bottom: 10px;">🙏</div>
+      <h2>Danos la oportunidad</h2>
+      <p style="margin-bottom: 1.5rem;">Sentimos que algo fallara. Cuéntanos por privado para solucionarlo ahora mismo.</p>
+      <a href="https://wa.me/523328329427?text=Hola, quiero comentarte unos detalles sobre mi estancia..." class="btn-modal btn-wa">Enviar mensaje privado</a>
+      <button class="btn-modal btn-sad" style="margin-top:10px;" onclick="closeModal()">Cerrar</button>
+    </div>
+
   </div>
+</div>
 
   <script>
-    // COPIAR WIFI AL PORTAPAPELES
-    function copyWifi() {
-      const pass = "qnaPW5gfYF";
-      const label = document.getElementById('wifi-label');
-      
-      navigator.clipboard.writeText(pass).then(() => {
-        label.innerText = "¡Contraseña Copiada! 🎉";
-        label.parentElement.style.backgroundColor = "#10b981";
-        
-        setTimeout(() => {
-          label.innerText = "Copiar Clave Wi-Fi";
-          label.parentElement.style.backgroundColor = "#0284c7";
-        }, 2500);
-      });
-    }
+  // COPIAR WIFI
+  function copyWifi() {
+    const pass = "qnaPW5gfYF";
+    const label = document.getElementById('wifi-label');
+    navigator.clipboard.writeText(pass).then(() => {
+      label.innerText = "¡Contraseña Copiada! 🎉";
+      label.parentElement.style.backgroundColor = "#10b981";
+      setTimeout(() => {
+        label.innerText = "Copiar Clave Wi-Fi";
+        label.parentElement.style.backgroundColor = "#0284c7";
+      }, 2500);
+    });
+  }
 
-    // LÓGICA DEL MODAL
-    const modal = document.getElementById('modalCheckout');
-    
-    function openCheckout() { modal.style.display = 'flex'; }
-    function closeModal() { modal.style.display = 'none'; resetModal(); }
+  // LÓGICA DEL MODAL DE SALIDA
+  const modal = document.getElementById('modalCheckout');
 
-    function goStep(step) {
-      document.getElementById('m-step1').classList.add('hidden');
-      document.getElementById('m-' + step).classList.remove('hidden');
-    }
+  function openCheckout() {
+    modal.style.display = 'flex';
+    resetModal();
+  }
 
-    function resetModal() {
-      document.getElementById('m-step1').classList.remove('hidden');
-      document.getElementById('m-happy').classList.add('hidden');
-      document.getElementById('m-sad').classList.add('hidden');
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  // Verifica que el huésped marcó todos los checks antes de pasar a la encuesta
+  function verifyChecklist() {
+    const checks = document.querySelectorAll('.check-item');
+    let allChecked = true;
+    checks.forEach(c => { if(!c.checked) allChecked = false; });
+
+    if(allChecked) {
+      goStep('ask');
+    } else {
+      alert("Por favor, confirma los 4 puntos del checklist para finalizar.");
     }
-  </script>
+  }
+
+  function goStep(step) {
+    // Ocultar todos los pasos
+    document.getElementById('m-step-check').classList.add('hidden');
+    document.getElementById('m-step-ask').classList.add('hidden');
+    document.getElementById('m-happy').classList.add('hidden');
+    document.getElementById('m-sad').classList.add('hidden');
+
+    // Mostrar el paso solicitado
+    if(step === 'ask') document.getElementById('m-step-ask').classList.remove('hidden');
+    if(step === 'happy') document.getElementById('m-happy').classList.remove('hidden');
+    if(step === 'neutral' || step === 'sad') document.getElementById('m-sad').classList.remove('hidden');
+  }
+
+  function resetModal() {
+    document.getElementById('m-step-check').classList.remove('hidden');
+    document.getElementById('m-step-ask').classList.add('hidden');
+    document.getElementById('m-happy').classList.add('hidden');
+    document.getElementById('m-sad').classList.add('hidden');
+    // Limpiar checkboxes
+    const checks = document.querySelectorAll('.check-item');
+    checks.forEach(c => c.checked = false);
+  }
+
+  // Cerrar si clickea fuera del cuadro blanco
+  window.onclick = function(event) {
+    if (event.target == modal) closeModal();
+  }
+</script>
 
 </body>
 </html>
