@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CarAle | Digital Concierge</title>
+  <title>CarAle | Guía Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
@@ -16,13 +16,14 @@
       --bg: #f8fafc;
       --white: #ffffff;
       --whatsapp: #25D366;
+      --trust-blue: #2c3e50; /* Color para Seguridad y Armonía */
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.6; padding-bottom: 80px; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.6; padding-bottom: 100px; }
 
     /* --- UI COMPONENTS --- */
-    .app-header { background: var(--white); padding: 1.2rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 1.1rem; }
+    .app-header { background: var(--white); padding: 1.2rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; }
     
     .arrival-info {
       background: var(--dark); color: var(--white); margin: 1.2rem;
@@ -50,31 +51,33 @@
     /* --- SECTIONS --- */
     .section { padding: 0 1.2rem 1.5rem; scroll-margin-top: 20px; }
     .content-box { background: white; padding: 1.5rem; border-radius: 22px; border: 1px solid #e2e8f0; }
-    h2 { font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; color: var(--primary-dark); }
+    h2 { font-size: 1.1rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; color: var(--primary-dark); }
 
-    .harmony-item { display: flex; gap: 12px; margin-bottom: 15px; align-items: start; }
-    .harmony-text strong { display: block; font-size: 0.9rem; color: var(--primary-dark); }
-    .harmony-text p { font-size: 0.8rem; color: var(--slate); }
+    .harmony-item { display: flex; gap: 12px; margin-bottom: 18px; align-items: start; }
+    .harmony-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .harmony-text strong { display: block; font-size: 0.9rem; color: var(--trust-blue); margin-bottom: 2px; }
+    .harmony-text p { font-size: 0.82rem; color: var(--slate); line-height: 1.4; }
 
     /* --- FLOATING WA BUTTON --- */
     .wa-float {
-      position: fixed; bottom: 20px; right: 20px;
+      position: fixed; bottom: 25px; right: 25px;
       background-color: var(--whatsapp); color: white;
-      width: 60px; height: 60px; border-radius: 50%;
+      width: 65px; height: 65px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 999;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); z-index: 999;
       text-decoration: none; transition: transform 0.3s;
     }
     .wa-float:active { transform: scale(0.9); }
 
     /* --- MODALS --- */
     .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
-    .modal-card { background: white; padding: 2rem; border-radius: 28px; width: 100%; max-width: 400px; text-align: center; }
+    .modal-card { background: white; padding: 2rem; border-radius: 28px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
     .btn-modal { width: 100%; padding: 14px; border-radius: 14px; border: none; font-weight: 700; margin-top: 10px; cursor: pointer; text-decoration: none; display: block; font-size: 1rem; }
     .btn-primary { background: var(--primary); color: white; }
     .btn-ghost { background: #f1f5f9; color: var(--slate); }
     .hidden { display: none; }
-    label { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 0.9rem; cursor: pointer; }
+    label { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 0.9rem; cursor: pointer; border-bottom: 1px solid #f8fafc; }
+    input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--primary); }
   </style>
 </head>
 
@@ -82,14 +85,12 @@
 
   <header class="app-header">CarAle Apartment</header>
 
-  <!-- INFO DE ARRIBO -->
   <div class="arrival-info">
     <div class="arrival-item"><span>Edificio</span><strong>7</strong></div>
     <div class="arrival-item"><span>Depto</span><strong>302</strong></div>
     <div class="arrival-item"><span>Cajón</span><strong>302</strong></div>
   </div>
 
-  <!-- MENU DE ACCIONES -->
   <nav class="action-grid">
     <a href="javascript:void(0)" class="btn-card btn-wifi btn-full" onclick="copyWifi()">
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12a11 11 0 0114 0M8.5 15.5a6 6 0 017 0M12 19h.01"></path></svg>
@@ -107,39 +108,51 @@
     </a>
 
     <a href="#armonia" class="btn-card">
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-      Convivencia
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+      Guía Armonía
     </a>
 
     <a href="javascript:void(0)" class="btn-card" onclick="openCheckout()">
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-      Finalizar Estancia
+      Check-out
     </a>
   </nav>
 
-  <!-- SECCIÓN ARMONÍA -->
+  <!-- SECCIÓN ARMONÍA (INCLUYE SEGURIDAD) -->
   <section class="section" id="armonia">
     <div class="content-box">
-      <h2>🤝 Guía de Armonía</h2>
+      <h2>🤝 Armonía y Seguridad</h2>
+      
+      <!-- SEGURIDAD (REQUERIDO) -->
       <div class="harmony-item">
-        <span style="font-size:1.4rem">🤫</span>
+        <span class="harmony-icon">🛡️</span>
+        <div class="harmony-text">
+          <strong>Tu Seguridad</strong>
+          <p>Para tranquilidad de todos, el acceso al Coto Taylor Burton es exclusivo para huéspedes registrados. Deposita tus bolsas cerradas en los contenedores del portón principal.</p>
+        </div>
+      </div>
+
+      <div class="harmony-item">
+        <span class="harmony-icon">🤫</span>
         <div class="harmony-text">
           <strong>Atmósfera de Descanso</strong>
-          <p>De 10 PM a 8 AM, el coto Taylor Burton mantiene un ambiente de paz. Agradecemos el volumen moderado para el descanso de todos.</p>
+          <p>Compartimos el área con residentes permanentes. De 10 PM a 8 AM, agradecemos mantener un volumen moderado para el descanso de la comunidad.</p>
         </div>
       </div>
+
       <div class="harmony-item">
-        <span style="font-size:1.4rem">🏠</span>
+        <span class="harmony-icon">🏠</span>
         <div class="harmony-text">
           <strong>Cuidado del Hogar</strong>
-          <p>En caso de cualquier incidente accidental con el equipamiento, agradecemos tu reporte vía WhatsApp para coordinar la reposición inmediata.</p>
+          <p>Agradecemos tu reporte honesto vía WhatsApp ante cualquier incidente accidental con el equipo. Esto nos permite asegurar la calidad para tu siguiente visita.</p>
         </div>
       </div>
+
       <div class="harmony-item">
-        <span style="font-size:1.4rem">🏊</span>
+        <span class="harmony-icon">🏊</span>
         <div class="harmony-text">
-          <strong>Alberca Residencial</strong>
-          <p>Disponible de 9 AM a 11 PM. Sugerimos envases de plástico por seguridad. Las toallas blancas son exclusivas para el baño.</p>
+          <strong>Uso de Alberca</strong>
+          <p>Disponible de 9 AM a 11 PM. Sugerimos envases de plástico por seguridad. Recuerda que las toallas blancas son exclusivas para el baño.</p>
         </div>
       </div>
     </div>
@@ -148,20 +161,19 @@
   <!-- AGUA CALIENTE -->
   <section class="section" id="agua">
     <div class="content-box">
-      <h2>🚿 Agua Caliente</h2>
-      <ol style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--dark);">
+      <h2>🚿 Agua Caliente (Boiler)</h2>
+      <ol style="font-size: 0.85rem; padding-left: 1.2rem; color: var(--dark); margin-bottom: 12px;">
         <li>Gira la perilla a <strong>PILOTO</strong> y mantén el botón rojo 10 seg.</li>
         <li>Presiona el chispero sin soltar el botón rojo.</li>
         <li>Ya encendido, gira la perilla a <strong>CALIENTE</strong>.</li>
       </ol>
+      <a href="https://www.youtube.com/embed/APubdwLjOmQ" target="_blank" style="display:inline-block; font-size: 0.8rem; font-weight: 700; color: var(--primary); text-decoration: none;">▶ Ver video de 15 segundos</a>
     </div>
   </section>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a href="https://wa.me/523328329427?text=Hola,%20tengo%20una%20duda%20sobre%20mi%20estancia%20en%20CarAle..." class="wa-float" target="_blank">
-    <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-    </svg>
+  <a href="https://wa.me/523328329427?text=Hola,%20soy%20huésped%20de%20CarAle%20y%20necesito%20ayuda..." class="wa-float" target="_blank">
+    <svg width="34" height="34" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
   </a>
 
   <!-- MODALES DE CHECKOUT -->
@@ -169,11 +181,11 @@
     <div class="modal-card">
       <div id="step-check">
         <h2 style="color: var(--primary);">✅ Checklist de Salida</h2>
-        <div style="text-align:left; margin: 1.5rem 0; display:grid; gap:8px;">
+        <div style="text-align:left; margin: 1.5rem 0; display:grid; gap:5px;">
           <label><input type="checkbox" class="check-item"> A/C y Luces apagadas</label>
           <label><input type="checkbox" class="check-item"> Basura en contenedores</label>
           <label><input type="checkbox" class="check-item"> Ventanas cerradas</label>
-          <label><input type="checkbox" class="check-item"> Llaves en su lugar</label>
+          <label><input type="checkbox" class="check-item"> Llaves en su lugar original</label>
         </div>
         <button class="btn-modal btn-primary" onclick="verifyChecklist()">Confirmar y seguir</button>
         <button class="btn-modal btn-ghost" onclick="closeModal()">Cancelar</button>
@@ -181,27 +193,28 @@
 
       <div id="step-ask" class="hidden">
         <h2>¿Qué tal tu estancia?</h2>
-        <button class="btn-modal btn-primary" onclick="goStep('happy')">¡Todo excelente! ⭐⭐⭐⭐⭐</button>
+        <button class="btn-modal btn-primary" onclick="goStep('happy')">¡Excelente! ⭐⭐⭐⭐⭐</button>
         <button class="btn-modal btn-ghost" onclick="goStep('sad')">Tengo comentarios / quejas</button>
       </div>
 
       <div id="step-happy" class="hidden">
-        <h2>¡Gracias! 🏠</h2>
-        <p style="margin: 1.5rem 0;">¿Nos regalas una reseña en Airbnb?</p>
+        <h2>¡Muchas gracias!</h2>
+        <p style="margin: 1rem 0;">Tu reseña de 5 estrellas nos ayuda mucho en Airbnb.</p>
         <a href="https://www.airbnb.com/users/reviews" target="_blank" class="btn-modal btn-primary">Calificar ahora</a>
         <button class="btn-modal btn-ghost" onclick="closeModal()">Cerrar</button>
       </div>
 
       <div id="step-sad" class="hidden">
-        <h2>Queremos mejorar</h2>
-        <p style="margin: 1.5rem 0;">Cuéntanos por WhatsApp qué falló para solucionarlo hoy mismo.</p>
-        <a href="https://wa.me/523328329427" class="btn-modal btn-primary" style="background:#25D366;">Enviar mensaje privado</a>
+        <h2>Danos la oportunidad de mejorar</h2>
+        <p style="margin: 1rem 0;">Cuéntanos qué falló por WhatsApp para solucionarlo hoy mismo.</p>
+        <a href="https://wa.me/523328329427" class="btn-modal btn-primary" style="background:#25D366;">Chat Privado de Apoyo</a>
         <button class="btn-modal btn-ghost" onclick="closeModal()">Cerrar</button>
       </div>
     </div>
   </div>
 
   <script>
+    // WIFI COPY
     function copyWifi() {
       const pass = "qnaPW5gfYF";
       const label = document.getElementById('wifi-label');
@@ -223,18 +236,22 @@
       const checks = document.querySelectorAll('.check-item');
       let ok = true;
       checks.forEach(c => { if(!c.checked) ok = false; });
-      if(ok) goStep('ask'); else alert("Por favor confirma los 4 puntos para continuar.");
+      if(ok) goStep('ask'); else alert("Por favor confirma los 4 puntos antes de partir.");
     }
 
     function goStep(stepId) {
-      ['step-check', 'step-ask', 'step-happy', 'step-sad'].forEach(s => {
-        document.getElementById(s).classList.add('hidden');
-      });
+      document.getElementById('step-check').classList.add('hidden');
+      document.getElementById('step-ask').classList.add('hidden');
+      document.getElementById('step-happy').classList.add('hidden');
+      document.getElementById('step-sad').classList.add('hidden');
       document.getElementById('step-' + stepId).classList.remove('hidden');
     }
 
     function resetModal() {
-      goStep('check');
+      document.getElementById('step-check').classList.remove('hidden');
+      document.getElementById('step-ask').classList.add('hidden');
+      document.getElementById('step-happy').classList.add('hidden');
+      document.getElementById('step-sad').classList.add('hidden');
       document.querySelectorAll('.check-item').forEach(c => c.checked = false);
     }
 
